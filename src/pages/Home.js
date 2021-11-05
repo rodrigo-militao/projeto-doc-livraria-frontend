@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { getArticles } from '../utils/api'
 
 export default function Home() {
+    const [articles, setArticles] = useState([])
+
+    useEffect(() => {
+        getArticles().then(setArticles)
+    }, [])
+
     return (
-        <div>
-            Home, aqui vou pegar todos os articles.
-        </div>
+        <>
+            {
+              articles.map(article => (
+                  <div key={article.id}>
+                      <a href={`/${article.id}`}>{article.title}</a>
+                  </div>
+              ))
+            }
+        </>
     )
 }
