@@ -12,8 +12,8 @@ export default function Home() {
         <>
             {
               articles.map(article => (
-                  <div key={article.id}>
-                      <a href={`/${article.id}`}>{article.title}</a>
+                  <div class key={article.id}>
+                      <a href={`/${article.postId}`}>{article.title}</a>
                   </div>
               ))
             }

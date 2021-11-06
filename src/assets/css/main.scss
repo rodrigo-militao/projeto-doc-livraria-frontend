@@ -1,0 +1,158 @@
+body {
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+a, a:hover {
+    color: #323330;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.fixedHeaderContainer {
+    background: #323330;
+    color: #fff;
+    min-height: 50px;
+    //padding: 8px 0;
+    //position: fixed;
+    width: 100%;
+    z-index: 9999;
+    transform: translateZ(0);
+
+    header {
+        display: flex;
+        flex-flow: row nowrap;
+        position: relative;
+        text-align: left;
+    }
+
+    a {
+        align-items: center;
+        border: 0;
+        color: #fff;
+        display: flex;
+        flex-flow: row nowrap;
+        height: 34px;
+        z-index: 10000;
+    }
+}
+
+.headerWrapper.wrapper {
+    max-width: 1400px;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 1100px;
+    padding: 0 20px;
+}
+
+.navigationSlider .slidingNav {
+    bottom: auto;
+    box-sizing: border-box;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.navigationSlider .slidingNav ul {
+    background: #323330;
+    box-sizing: border-box;
+    color: #fff;
+    display: flex;
+    flex-wrap: nowrap;
+    list-style: none;
+    margin-top: 50px;
+    padding: 0;
+    width: 100%;
+}
+
+.navigationSlider .slidingNav ul li {
+    flex: 1 1 auto;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.navSearchWrapper {
+    align-items: center;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.main-wrapper {
+    margin: 20px auto;
+    max-width: 1400px;
+    padding: 0px 1.0875rem 1.45rem;
+    padding-top: 0;
+    display: flex;
+
+    .sidebar-container {
+        flex: 0 0 200px;
+        max-width: 200px;
+        min-width: 200px;
+        width: 200px;
+
+        ul {
+            li {
+                margin-bottom: 8px;
+            }
+        }
+    }
+}
+
+.main-container {
+    flex: 1 auto;
+    max-width: 70%;
+    min-width: 0;
+    text-align: center;
+}
+
+
+@media only screen and (min-width: 1024px) {
+    .separateOnPageNav .headerWrapper.wrapper, .separateOnPageNav .wrapper {
+        max-width: 1400px;
+    }
+    .navigationSlider {
+        height: 34px;
+        margin-left: auto;
+        position: relative;
+    }
+
+    .navigationSlider nav.slidingNav {
+        background: 0 0;
+        height: auto;
+        position: relative;
+        right: auto;
+        top: auto;
+        width: auto;
+    }
+
+    .navigationSlider .slidingNav ul {
+        background: 0 0;
+        display: flex;
+        flex-flow: row nowrap;
+        margin: 0;
+        padding: 0;
+        width: auto;
+    }
+    .navSearchWrapper {
+        padding-left: 10px;
+        position: relative;
+        right: auto;
+        top: auto;
+    }
+}
