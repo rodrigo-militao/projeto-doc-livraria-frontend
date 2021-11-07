@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from 'react'
-import { getArticles } from '../utils/api'
+import { getGroups } from '../utils/api'
 
 export default function Sidebar() {
-    const [articles, setArticles] = useState([])
+    const [groups, setGroups] = useState([])
 
     useEffect(() => {
-        getArticles().then(setArticles)
+        getGroups().then(setGroups)
     }, [])
+    console.log(groups)
     return (
         <>
           <ul>
-            {articles.map(article => (
-                <li key={article.id}>
-                    <a href={`/${article.postId}`}>{article.title}</a>
-                </li>
+            {groups.map(group => (
+                <div key={group.id}>
+                    <h4>{group.title}</h4>
+                    {group.articles.map(article => (
+                        <li key={article.order}>
+                            <a href={`/${article.url}`}>{article.title}</a>
+                        </li>
+                    ))}
+                </div>
             ))}
           </ul>
         </>

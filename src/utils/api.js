@@ -2,27 +2,32 @@ import axios from 'axios'
 
 const API_URL = "http://localhost:5001/"
 
-export async function getArticle(id) {
-    const response = await axios.get(`${API_URL}${id}`)
+export const getArticle =  async (id) => {
+    const response = await axios.get(`${API_URL}article/${id}`)
     return response.data
 }
 
-export async function getArticles() {
-    const response = await axios.get(`${API_URL}`)
+export const getArticles = async () => {
+    const response = await axios.get(`${API_URL}article/`)
     return response.data
 }
 
-export async function createArticle(article) {
-    const response = await axios.post(`${API_URL}`, article)
+export const createArticle = async (article) =>{
+    const response = await axios.post(`${API_URL}article/`, article)
     return response.data
 }
 
-export async function updateArticle(id, article) {
-    const response = await axios.put(`${API_URL}${id}`, article)
+export const updateArticle = async (id, article) => {
+    const response = await axios.put(`${API_URL}article/${id}`, article)
     return response.data
 }
 
-export async function deleteArticle(id) {
-    const response = await axios.delete(`${API_URL}${id}`)
+export const deleteArticle = async (id) => {
+    const response = await axios.delete(`${API_URL}article/${id}`)
+    return response.data
+}
+
+export const getGroups = async () => {
+    const response = await axios.get(`${API_URL}group`)
     return response.data
 }
