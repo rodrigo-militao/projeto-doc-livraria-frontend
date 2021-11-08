@@ -15,7 +15,7 @@ export default function Navbar() {
                 <nav className="slidingNav">
                   <ul className="nav-site nav-site-internal">
                       <li>
-                        <a href="/new">Novo</a>
+                        
                       </li>
                     </ul>
                   </nav>

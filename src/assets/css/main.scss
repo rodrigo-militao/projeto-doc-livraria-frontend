@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     vertical-align: baseline;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
 }
 
 a, a:hover {
@@ -16,12 +17,16 @@ ul {
     list-style: none;
 }
 
+code {
+    background-color: #f6effd!important;
+}
+
 .fixedHeaderContainer {
     background: #323330;
     color: #fff;
     min-height: 50px;
     //padding: 8px 0;
-    //position: fixed;
+    position: fixed;
     width: 100%;
     z-index: 9999;
     transform: translateZ(0);
@@ -94,11 +99,12 @@ ul {
 }
 
 .main-wrapper {
-    margin: 20px auto;
+    margin: 0 auto;
     max-width: 1400px;
     padding: 0px 1.0875rem 1.45rem;
     padding-top: 0;
     display: flex;
+    justify-content: space-around;
 
     .sidebar-container {
         flex: 0 0 200px;
@@ -116,13 +122,30 @@ ul {
 
 .main-container {
     flex: 1 auto;
-    max-width: 70%;
+    max-width: 60%;
     min-width: 0;
-    text-align: center;
+    margin: 0 24px;
+    h2 {
+        text-align: center;
+    }
+}
+
+.postHeader {
+    margin-top: 100px;
 }
 
 
 @media only screen and (min-width: 1024px) {
+    .sidebar-container {
+        flex: 0 0 240px;
+        height: calc(100vh - 50px);
+        position: -webkit-sticky;
+        position: sticky;
+        overflow-y: auto;
+        top: 50px;
+        padding: 40px 0;
+    }
+
     .separateOnPageNav .headerWrapper.wrapper, .separateOnPageNav .wrapper {
         max-width: 1400px;
     }
