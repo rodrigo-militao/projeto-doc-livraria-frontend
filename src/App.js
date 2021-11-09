@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './assets/css/main.scss';
+import './assets/css/code.scss';
 
 import SingleArticle from "./pages/SingleArticle";
 import NewArticle from "./pages/NewArticle";
