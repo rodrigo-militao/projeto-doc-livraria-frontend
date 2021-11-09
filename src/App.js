@@ -6,6 +6,7 @@ import NewArticle from "./pages/NewArticle";
 import UpdateArticle from "./pages/UpdateArticle";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import ScrollTop from "./components/ScrollTop";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
               </Route>
             </Routes>
           </BrowserRouter>
+          <ScrollTop />
         </div>
 
       </div>
