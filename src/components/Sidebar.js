@@ -7,7 +7,6 @@ export default function Sidebar() {
     useEffect(() => {
         getGroups().then(setGroups)
     }, [])
-    console.log(groups)
     return (
         <>
           <ul>
