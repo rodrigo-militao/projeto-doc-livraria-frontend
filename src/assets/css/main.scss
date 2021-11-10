@@ -15,13 +15,56 @@ a, a:hover {
 
 ul {
     list-style: none;
+    margin-bottom: 1em;
+    margin-top: 0;
+    padding-left: 2em;
+}
+
+img {
+    border-style: none;
+    box-sizing: content-box;
+    max-width: 100%;
+}
+
+.postHeader {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.postHeaderTitle {
+    margin-top: 0;
+    padding: 0;
+}
+
+.docsContainer .wrapper .post .postHeader:before, .docsContainer .wrapper .post .postHeaderTitle:before {
+    content: "";
+    display: block;
+    //height: 90px;
+    margin-top: -90px;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 6px;
+    width: 100%;
+}
+
+.line1, .line2, .line3 {
+    width: 100%;
+    height: 3px;
+    background-color: #393939;
+    margin: 3px 0;
+    transition: .4s;
+    border-radius: 10px;
 }
 
 .fixedHeaderContainer {
     background: #323330;
     color: #fff;
-    min-height: 50px;
-    //padding: 8px 0;
+    padding: 8px 0;
     position: fixed;
     width: 100%;
     z-index: 9999;
@@ -32,6 +75,11 @@ ul {
         flex-flow: row nowrap;
         position: relative;
         text-align: left;
+
+        img {
+            height: 100%;
+            margin-right: 10px;
+        }
     }
 
     a {
@@ -43,6 +91,19 @@ ul {
         height: 34px;
         z-index: 10000;
     }
+
+    ul {
+        align-items: center;
+        display: flex;
+        flex-flow: row nowrap;
+        height: 34px;
+        justify-content: flex-end;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        z-index: 10000;
+    }
 }
 
 .headerWrapper.wrapper {
@@ -52,7 +113,7 @@ ul {
 .wrapper {
     margin: 0 auto;
     max-width: 1100px;
-    padding: 0 20px;
+    padding: 0 60px;
 }
 
 .navigationSlider .slidingNav {
@@ -71,7 +132,7 @@ ul {
     display: flex;
     flex-wrap: nowrap;
     list-style: none;
-    margin-top: 50px;
+    //margin-top: 50px;
     padding: 0;
     width: 100%;
 }
@@ -81,6 +142,15 @@ ul {
     margin: 0;
     text-align: center;
     white-space: nowrap;
+    a {
+        color: hsla(0,0%,100%,.8);
+        font-size: 1em;
+        font-weight: 300;
+        height: 32px;
+        line-height: 1.2em;
+        margin: 0;
+        padding: 6px 10px;
+    }
 }
 
 .navSearchWrapper {
@@ -94,36 +164,10 @@ ul {
     top: 10px;
 }
 
-.main-wrapper {
-    margin: 0 auto;
-    max-width: 1400px;
-    padding: 0px 1.0875rem 1.45rem;
-    padding-top: 0;
-    display: flex;
-    justify-content: space-around;
-
-    .sidebar-container {
-        flex: 0 0 200px;
-        max-width: 200px;
-        min-width: 200px;
-        width: 200px;
-
-        ul {
-            li {
-                margin-bottom: 8px;
-            }
-        }
-    }
-}
-
-.main-container {
-    flex: 1 auto;
-    max-width: 60%;
-    min-width: 0;
-    margin: 0 24px;
-    h2 {
-        text-align: center;
-    }
+.mainContainer {
+    flex: 1 1 0%;
+    max-width: 100%;
+    padding: 40px 0;
 }
 
 .postHeader {
@@ -152,21 +196,223 @@ ul {
     height: 20px;
 }
 
+.navSearchWrapper:before {
+    left: 24px;
+}
+.navSearchWrapper:before {
+    border: 3px solid #e5e5e5;
+    border-radius: 50%;
+    content: " ";
+    display: block;
+    height: 6px;
+    left: 15px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-58%);
+    width: 6px;
+    z-index: 1;
+}
+
+.navSearchWrapper:after {
+    left: 35px;
+}
+.navSearchWrapper:after {
+    background: #e5e5e5;
+    content: " ";
+    height: 7px;
+    left: 24px;
+    position: absolute;
+    top: 55%;
+    transform: rotate(-45deg);
+    width: 3px;
+    z-index: 1;
+}
+
+input.search-input:active, input.search-input:focus {
+    color: #fff;
+    width: 220px;
+}
+
+.search-results-wrapper {
+    display: static;
+    position: absolute;
+    width: 150%;
+    right: 10%;
+    left: -30%;
+    top: 41px;
+    overflow: hidden;
+    max-height: 500px;
+    background-color: #fafafa;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    overflow-y: scroll;
+
+    .search-result {
+        padding: 10px;
+        .search-result-info {
+            color: #000!important;
+        }
+    }
+
+    .search-result:hover {
+        background-color: #e5e5e5;
+    }
+}
+
+.toc {
+    .toggleNav {
+        color: #393939;
+        position: relative;
+        ul {
+            padding: 0 8px;
+            li {
+                list-style-type: none;
+                padding: 0;
+                a {
+                    border: none;
+                    color: #717171;
+                    display: block;
+                    font-size: 14px;
+                    padding: 4px 0;
+                    transition: color .3s;
+                }
+            }
+        }
+        .navGroup {
+            margin-bottom: 16px;
+            .navGroupCategoryTitle {
+                color: #393939;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 1.2em;
+                margin-bottom: 8px;
+                margin-top: 0;
+            }
+            .navListItem {
+                margin: 0;
+            }
+        }
+    }
+    .navWrapper {
+        padding: 0;
+    }
+    section {
+        
+        .navGroups {
+            display: none;
+            padding: 48px 20px 60px;
+        }
+
+    }
+}
+
+.docsSliderActive .toc .navBreadcrumb, .tocActive .navBreadcrumb {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    position: fixed;
+    width: 100%;
+}
+
+.docsNavContainer .toc .navBreadcrumb {
+    background-color: #f1f1f1;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: 12px;
+    height: 48px;
+    overflow: hidden;
+    padding: 8px 20px;
+}
+
+
+.toc .toggleNav .navToggle {
+    cursor: pointer;
+    height: 32px;
+    margin-right: 10px;
+    position: relative;
+    text-align: left;
+    width: 18px;
+}
+
+.toc .toggleNav .navBreadcrumb h2 {
+    border: 0;
+    flex-grow: 1;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+.navPusher {
+    left: 0;
+    min-height: 100%;
+    padding-top: 50px;
+    position: relative;
+    z-index: 99;
+}
+
+.search-input {
+    height: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 38px;
+    background-color: rgba(0,0,0,.2);
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    outline: 0;
+    padding-left: 25px;
+    position: relative;
+    transition: width .5s ease;
+    width: 170px;
+}
 
 @media only screen and (min-width: 1024px) {
-    .sidebar-container {
+    .separateOnPageNav .headerWrapper.wrapper, .separateOnPageNav .wrapper {
+        max-width: 1400px;
+    }
+    .navPusher, .navPusher>:first-child {
+        flex-grow: 1;
+    }
+    .navPusher {
+        display: flex;
+        flex-direction: column;
+        min-height: calc(100vh - 50px);
+        padding-top: 50px;
+    }
+    .docsNavContainer {
         flex: 0 0 240px;
         height: calc(100vh - 50px);
         position: -webkit-sticky;
         position: sticky;
         overflow-y: auto;
         top: 50px;
-        padding: 40px 0;
     }
 
-    .separateOnPageNav .headerWrapper.wrapper, .separateOnPageNav .wrapper {
-        max-width: 1400px;
+    .docMainWrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        width: 100%;
     }
+
+    .docMainWrapper>* {
+        margin: 0 24px;
+    }
+
+    .docMainWrapper>:first-child {
+        margin-left: 0;
+    }
+
+    .separateOnPageNav.sideNavVisible .navPusher .mainContainer {
+        flex: 1 auto;
+        max-width: 100%;
+        min-width: 0;
+    }
+    
     .navigationSlider {
         height: 34px;
         margin-left: auto;
@@ -196,4 +442,20 @@ ul {
         right: auto;
         top: auto;
     }
+
+    .toc {
+        padding: 40px 0;
+        width: auto;
+        section {
+            .navGroups {
+                display: block;
+                padding: 8px 0 0;
+            }
+        } 
+    }
+
+    .docsNavContainer .toc .navBreadcrumb {
+        display: none;
+    }
 }
+

@@ -12,31 +12,31 @@ import ScrollTop from "./components/ScrollTop";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
 
-      <div className="main-wrapper">
+      <div className="navPusher">
+        <div className="docMainWrapper wrapper">
 
-        <div className="sidebar-container">
           <Sidebar />
-        </div>
 
-        <div className="main-container">
-          <BrowserRouter>
-            <Routes>
-              <Route path="/">
-                <Route path=":articleId" element={<SingleArticle />} />
-                <Route path="new" element={<NewArticle />} />
-                <Route path="update/:articleId" element={<UpdateArticle />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-          <ScrollTop />
-        </div>
+          <div className="container mainContainer docsContainer">
+            <>
+              <Routes>
+                <Route path="/">
+                  <Route path=":articleId" element={<SingleArticle />} />
+                  <Route path="new" element={<NewArticle />} />
+                  <Route path="update/:articleId" element={<UpdateArticle />} />
+                </Route>
+              </Routes>
+            </>
+            <ScrollTop />
+          </div>
 
+        </div>
       </div>
 
-    </>
+    </BrowserRouter>
   );
 }
 

@@ -13,13 +13,15 @@ export default function SingleArticle() {
     }, [articleId]);
 
     return (
-        <>
-            <div className="postHeader">
-                <h1>{article.title}</h1>
-            </div>
+        <div className="wrapper">
+          <div className="post">
+            <header className="postHeader">
+                <h1 className="postHeaderTitle">{article.title}</h1>
+            </header>
             <article>
               <MarkdownPreview source={article.content} />
             </article>
-        </>
+          </div>
+        </div>
     )
 }

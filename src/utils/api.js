@@ -31,3 +31,8 @@ export const getGroups = async () => {
     const response = await axios.get(`${API_URL}group`)
     return response.data
 }
+
+export const searchArticles = async (search) => {
+    const response = await axios.get(`${API_URL}article/search/${search}`)
+    return response.data
+}
