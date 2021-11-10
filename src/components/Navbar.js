@@ -31,7 +31,8 @@ export default function Navbar() {
                 <img 
                 className="logo" 
                 src="https://weslley.io/media/logo.min.svg" 
-                alt="Babel" />
+                alt="Weslley.io"
+                />
               </a>
               <div className="navigationWrapper navigationSlider">
                 <nav className="slidingNav">

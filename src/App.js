@@ -8,6 +8,7 @@ import UpdateArticle from "./pages/UpdateArticle";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import ScrollTop from "./components/ScrollTop";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
           </div>
 
         </div>
+
+        <Footer />
+
       </div>
 
     </BrowserRouter>
