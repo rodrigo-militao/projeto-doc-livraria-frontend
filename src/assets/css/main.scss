@@ -1,3 +1,5 @@
+$main-color: #F39EED;
+
 body {
     border: 0;
     font: inherit;
@@ -24,6 +26,30 @@ ul {
 img {
     border-style: none;
     box-sizing: content-box;
+}
+
+a.button {
+    border-bottom-color: #323330;
+    background-color: transparent;
+}
+
+a.button:hover {
+    background: #323330;
+    color: $main-color;
+}
+
+.button {
+    border: 1px solid #323330;
+    border-radius: 3px;
+    color: #323330;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2em;
+    padding: 10px;
+    text-decoration: none!important;
+    text-transform: uppercase;
+    transition: background .3s,color .3s;
 }
 
 .postHeader {
@@ -396,6 +422,14 @@ input.search-input:active, input.search-input:focus {
         margin: 0 auto 3em;
         max-width: 1080px;
     }
+}
+
+.docs-prevnext {
+    margin: 20px 0;
+}
+
+.docs-next {
+    float: right;
 }
 
 @media only screen and (min-width: 1024px) {

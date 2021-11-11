@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { getGroups } from '../utils/api'
+import { useGroupsContext } from '../context/GroupsContext'
 
 export default function Sidebar() {
-    const [groups, setGroups] = useState([])
+    const { groups, setGroups } = useGroupsContext()
 
     useEffect(() => {
         getGroups().then(setGroups)
     }, [])
-
-    useEffect(() => {
-        console.log(groups)
-    }, [groups])
 
     return (
       <div className="docsNavContainer" id="docsNav">

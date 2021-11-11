@@ -3,8 +3,12 @@ import axios from 'axios'
 const API_URL = "http://localhost:5001/"
 
 export const getArticle =  async (id) => {
-    const response = await axios.get(`${API_URL}article/${id}`)
-    return response.data
+    try {
+        const response = await axios.get(`${API_URL}article/${id}`)
+        return response.data
+    } catch (err) {
+        return {error: true}
+    }
 }
 
 export const getArticles = async () => {
