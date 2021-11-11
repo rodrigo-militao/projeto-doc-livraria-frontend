@@ -45,11 +45,11 @@ export default function PrevNextButtons({ currentArticle, currentGroupId = 0 }) 
         <div className="docs-prevnext">
             {
                 prevArticle && 
-                <Link to={`/${prevArticle.url}`} className="docs-prev button"><i className="fas fa-arrow-left"></i> Anterior</Link>
+                <Link to={`/${prevArticle.url}`} className="docs-prev button"><i className="fas fa-arrow-left"></i> {prevArticle.title}</Link>
             }
             {
                 nextArticle &&
-                <Link to={`/${nextArticle.url}`} className="docs-next button">Próximo <i className="fas fa-arrow-right"></i></Link>
+                <Link to={`/${nextArticle.url}`} className="docs-next button">{nextArticle.title} <i className="fas fa-arrow-right"></i></Link>
             }
         </div>
     )
