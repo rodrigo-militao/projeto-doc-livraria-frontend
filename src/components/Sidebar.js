@@ -36,12 +36,7 @@ export default function Sidebar() {
                         <h3 className="navGroupCategoryTitle">{group.title}</h3>
                         <ul>
                           {
-                            
-                            group.articles.sort((a, b) => {
-                              if (a.relevance < b.relevance) return 1;
-                              if (a.relevance > b.relevance) return -1;
-                              return 0;
-                            }).map(article => (
+                            group.articles.map(article => (
                               <li className="navListItem" key={article.order}>
                                   <Link className="navItem" to={`/${article.url}`}>{article.title}</Link>
                               </li>
