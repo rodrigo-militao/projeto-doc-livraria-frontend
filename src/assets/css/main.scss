@@ -250,15 +250,21 @@ input.search-input:active, input.search-input:focus {
     border-radius: 8px;
 
     .search-result {
-        padding: 10px;
-        .search-result-info {
-            color: #000!important;
-        }
+        padding: 10px!important;
+        color: #000!important;
+        display: block;
+        text-align: left;
+
     }
 
     .search-result:hover {
         background-color: #e5e5e5;
     }
+}
+
+.search-result-group {
+    font-size: 12px;
+    color: #999;
 }
 
 .toc {

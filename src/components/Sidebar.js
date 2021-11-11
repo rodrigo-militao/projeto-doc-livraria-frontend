@@ -9,6 +9,10 @@ export default function Sidebar() {
         getGroups().then(setGroups)
     }, [])
 
+    useEffect(() => {
+        console.log(groups)
+    }, [groups])
+
     return (
       <div className="docsNavContainer" id="docsNav">
         <nav className="toc">
@@ -31,11 +35,19 @@ export default function Sidebar() {
                     <div className="navGroup" key={group.id}>
                         <h3 className="navGroupCategoryTitle">{group.title}</h3>
                         <ul>
-                          {group.articles.map(article => (
+                          {
+                            
+                            group.articles.sort((a, b) => {
+                              if (a.relevance < b.relevance) return 1;
+                              if (a.relevance > b.relevance) return -1;
+                              return 0;
+                            }).map(article => (
                               <li className="navListItem" key={article.order}>
                                   <Link className="navItem" to={`/${article.url}`}>{article.title}</Link>
                               </li>
-                          ))}
+                            ))
+                          }
+                    
                         </ul>
                     </div>
                 ))}
