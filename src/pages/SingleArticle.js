@@ -15,6 +15,8 @@ export default function SingleArticle() {
       }
         getArticle(articleId).then(setArticle)
     }, [articleId]);
+
+    
     return (
         <div className="wrapper">
           {
@@ -29,7 +31,9 @@ export default function SingleArticle() {
                     <h1 className="postHeaderTitle">{article.title}</h1>
                 </header>
                 <article>
-                  <MarkdownPreview source={article.content} />
+                  <MarkdownPreview 
+                  source={decodeURIComponent(escape(window.atob( article.content )))}
+                  />
                 </article>
               </div>
               <PrevNextButtons 
