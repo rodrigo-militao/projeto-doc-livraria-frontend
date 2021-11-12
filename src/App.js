@@ -3,6 +3,7 @@ import './assets/css/main.scss';
 import './assets/css/code.scss';
 
 import SingleArticle from "./pages/SingleArticle";
+import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import ScrollTop from "./components/ScrollTop";
@@ -25,6 +26,7 @@ function App() {
               <>
                 <Routes>
                   <Route path="/">
+                    <Route index element={<Home />} />
                     <Route path=":articleId" element={<SingleArticle />} />
                   </Route>
                 </Routes>

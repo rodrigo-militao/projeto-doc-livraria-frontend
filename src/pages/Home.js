@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from 'react'
-import { getArticles } from '../utils/api'
+import React, { useEffect } from 'react'
+import { useGroupsContext } from '../context/GroupsContext'
 
 export default function Home() {
-    const [articles, setArticles] = useState([])
+    const { groups } = useGroupsContext()
 
     useEffect(() => {
-        getArticles().then(setArticles)
-    }, [])
+        if(groups.length > 0) {
+            const firstGroup = groups.sort((a, b) => a.order - b.order)[0]
+            const firstArticle = firstGroup.articles.sort((a, b) => a.order - b.order)[0]
+            window.location.href = `/${firstArticle.url}`
+        }
+    }, [groups])
 
-    return (
-        <>
-            {
-              articles.map(article => (
-                  <div class key={article.id}>
-                      <a href={`/${article.postId}`}>{article.title}</a>
-                  </div>
-              ))
-            }
-        </>
-    )
+    return <></>
+    
 }
