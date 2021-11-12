@@ -10,6 +10,9 @@ export default function SingleArticle() {
     const [article, setArticle] = useState({});
 
     useEffect(() => {
+      if(document.querySelectorAll('.scroll-to-top')[0]){
+        document.querySelectorAll('.scroll-to-top')[0].click()
+      }
         getArticle(articleId).then(setArticle)
     }, [articleId]);
     return (

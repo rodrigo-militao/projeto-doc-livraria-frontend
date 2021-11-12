@@ -17,10 +17,6 @@ export default function Navbar() {
       setResults([])
     }
   }, [search])
-  
-  useEffect(() => {
-    console.log(results)
-  }, [results])
 
     return (
       <>
