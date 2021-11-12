@@ -52,6 +52,14 @@ a.button:hover {
     transition: background .3s,color .3s;
 }
 
+.navPusher {
+    left: 0;
+    min-height: 100%;
+    padding-top: 100px;
+    position: relative;
+    z-index: 99;
+}
+
 .postHeader {
     margin-top: 100px;
     margin-bottom: 50px;
@@ -432,6 +440,44 @@ input.search-input:active, input.search-input:focus {
     float: right;
 }
 
+.docsSliderActive.docsNavContainer {
+    box-sizing: border-box;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    -ms-scroll-chaining: none;
+    overscroll-behavior: contain;
+    padding-bottom: 50px;
+}
+
+.docsSliderActive .toc section .navGroups {
+    display: block;
+    padding-top: 60px;
+}
+
+.docsSliderActive .toc .toggleNav ul {
+    padding-left: 0;
+}
+
+.docsSliderActive .hamburger-menu {
+    top: 12px;
+}
+
+.docsSliderActive .line1 {
+    position: absolute;
+    top: 50%;
+    transform: rotate(-45deg);
+}
+.docsSliderActive .line2 {
+    display: none;
+}
+
+.docsSliderActive .line3 {
+    position: absolute;
+    top: 50%;
+    transform: rotate(45deg);
+}
+
 @media only screen and (min-width: 1024px) {
     .separateOnPageNav .headerWrapper.wrapper, .separateOnPageNav .wrapper {
         max-width: 1400px;
@@ -524,3 +570,18 @@ input.search-input:active, input.search-input:focus {
     }
 }
 
+@media only screen and (max-width: 1023px){
+
+    .docsNavContainer {
+        background: #fff;
+        left: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+    }
+
+    .wrapper {
+        padding: 0 20px;
+    }
+
+}    

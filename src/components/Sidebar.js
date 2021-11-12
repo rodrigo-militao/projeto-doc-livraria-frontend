@@ -1,27 +1,32 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getGroups } from '../utils/api'
 import { useGroupsContext } from '../context/GroupsContext'
 
 export default function Sidebar() {
     const { groups, setGroups } = useGroupsContext()
+    const [isActive, setIsActive] = useState(false)
 
     useEffect(() => {
         getGroups().then(setGroups)
     }, [])
 
     return (
-      <div className="docsNavContainer" id="docsNav">
+      <div className={`docsNavContainer ${isActive && 'docsSliderActive'}`} id="docsNav">
         <nav className="toc">
           <div className= "toggleNav">
             <section className="navWrapper wrapper">
 
-              <div class="navBreadcrumb wrapper">
-                <div class="navToggle" id="navToggler">
-                  <div class="hamburger-menu">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
+              <div className="navBreadcrumb wrapper">
+                <div 
+                  className="navToggle"
+                  id="navToggler"
+                  onClick={() => setIsActive(!isActive)}
+                >
+                  <div className="hamburger-menu">
+                    <div className="line1"></div>
+                    <div className="line2"></div>
+                    <div className="line3"></div>
                   </div>
                 </div>
                   <h2><span>Menu</span></h2>
@@ -34,7 +39,7 @@ export default function Sidebar() {
                         <ul>
                           {
                             group.articles.map(article => (
-                              <li className="navListItem" key={article.order}>
+                              <li className="navListItem" key={article.order} onClick={() => setIsActive(false)}>
                                   <Link className="navItem" to={`/${article.url}`}>{article.title}</Link>
                               </li>
                             ))
